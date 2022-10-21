@@ -15,8 +15,8 @@ enum AlertManager {
         buttonTitle: String
     ) -> UIAlertController {
         let alertController = UIAlertController(
-            title: "Oops!",
-            message: "Please check your internet connection or come back later.",
+            title: title,
+            message: message,
             preferredStyle: .alert
         )
         alertController.modalPresentationStyle = .overFullScreen
