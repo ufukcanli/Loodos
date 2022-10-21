@@ -48,11 +48,19 @@
 		D245B43A2902CAE200ACCBD7 /* Loodos */ = {
 			isa = PBXGroup;
 			children = (
+				D245B44F2902D07500ACCBD7 /* Configuration */,
+			);
+			path = Loodos;
+			sourceTree = "<group>";
+		};
+		D245B44F2902D07500ACCBD7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
 				D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */,
 				D245B4442902CAE300ACCBD7 /* Assets.xcassets */,
 				D245B4492902CAE300ACCBD7 /* Info.plist */,
 			);
-			path = Loodos;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +262,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7995LB4979;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Loodos/Info.plist;
+				INFOPLIST_FILE = Loodos/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -280,7 +288,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7995LB4979;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Loodos/Info.plist;
+				INFOPLIST_FILE = Loodos/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
