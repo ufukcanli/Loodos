@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */; };
-		D245B43E2902CAE200ACCBD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */; };
 		D245B4452902CAE300ACCBD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D245B4442902CAE300ACCBD7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D245B4382902CAE200ACCBD7 /* Loodos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loodos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D245B4442902CAE300ACCBD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D245B4492902CAE300ACCBD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */,
-				D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */,
 				D245B4442902CAE300ACCBD7 /* Assets.xcassets */,
 				D245B4492902CAE300ACCBD7 /* Info.plist */,
 			);
@@ -128,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */,
-				D245B43E2902CAE200ACCBD7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
