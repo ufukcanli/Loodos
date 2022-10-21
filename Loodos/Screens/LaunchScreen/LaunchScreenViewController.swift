@@ -14,7 +14,7 @@ final class LaunchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemBackground
         
         configureTitleLabel()
     }
@@ -24,8 +24,8 @@ private extension LaunchScreenViewController {
     
     func configureTitleLabel() {
         titleLabel.text = "Loodos"
-        titleLabel.textColor = .systemYellow
-        titleLabel.font = .systemFont(ofSize: 35, weight: .medium)
+        titleLabel.textColor = .label
+        titleLabel.font = .systemFont(ofSize: 50, weight: .medium)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)

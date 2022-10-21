@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if ReachabilityManager.isConnectedToNetwork() {
             let launchScreenViewController = LaunchScreenViewController()
-            setRootViewController(launchScreenViewController)
+            presentViewController(launchScreenViewController, atLaunch: true)
         } else {
             let alertController = AlertManager.createAlertController(
                 title: "Oops!",
                 message: "Please check your internet connection or come back later.",
                 buttonTitle: "OK"
             )
-            presentAlertController(alertController)
+            presentViewController(alertController)
         }
         
         return true
@@ -36,19 +36,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
     
-    func setRootViewController(_ viewController: UIViewController) {
+    func setRootViewController(
+        _ viewController: UIViewController,
+        withAnimation: Bool = false
+    ) {
         guard let window = self.window else { return }
         window.rootViewController = viewController
         window.makeKeyAndVisible()
+        
+        if withAnimation {
+            UIView.transition(
+                with: window,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: nil,
+                completion: nil
+            )
+        }
     }
     
-    func presentAlertController(_ controller: UIAlertController) {
+    func presentViewController(
+        _ controller: UIViewController,
+        atLaunch: Bool = false
+    ) {
         guard let window = self.window else { return }
         
         let rootViewController = UIViewController()
         rootViewController.view.backgroundColor = .systemBackground
         setRootViewController(rootViewController)
         
-        window.rootViewController?.present(controller, animated: true)
+        guard atLaunch else {
+            window.rootViewController?.present(controller, animated: true)
+            return
+        }
+        
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .flipHorizontal
+        
+        window.rootViewController?.present(controller, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                window.rootViewController?.dismiss(animated: true) { [self] in
+                    let viewController = UIViewController()
+                    viewController.view.backgroundColor = .systemBackground
+                    setRootViewController(viewController, withAnimation: true)
+                }
+            }
+        }
     }
 }
