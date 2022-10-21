@@ -10,6 +10,7 @@
 		D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */; };
 		D245B4452902CAE300ACCBD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D245B4442902CAE300ACCBD7 /* Assets.xcassets */; };
 		D245B4532902D13100ACCBD7 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4522902D13100ACCBD7 /* LaunchScreenViewController.swift */; };
+		D245B4592902D3CD00ACCBD7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4582902D3CD00ACCBD7 /* NetworkReachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		D245B4442902CAE300ACCBD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D245B4492902CAE300ACCBD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D245B4522902D13100ACCBD7 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		D245B4582902D3CD00ACCBD7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		D245B43A2902CAE200ACCBD7 /* Loodos */ = {
 			isa = PBXGroup;
 			children = (
+				D245B4542902D32100ACCBD7 /* Utilities */,
 				D245B4502902D11500ACCBD7 /* Screens */,
 				D245B44F2902D07500ACCBD7 /* Configuration */,
 			);
@@ -80,6 +83,14 @@
 				D245B4522902D13100ACCBD7 /* LaunchScreenViewController.swift */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		D245B4542902D32100ACCBD7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D245B4582902D3CD00ACCBD7 /* NetworkReachability.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			files = (
 				D245B4532902D13100ACCBD7 /* LaunchScreenViewController.swift in Sources */,
 				D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */,
+				D245B4592902D3CD00ACCBD7 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
