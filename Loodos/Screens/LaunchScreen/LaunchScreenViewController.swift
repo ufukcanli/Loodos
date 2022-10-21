@@ -20,6 +20,12 @@ final class LaunchScreenViewController: UIViewController {
         
         if NetworkReachability.isConnectedToNetwork() {
             debugPrint(#function, "CONNECTED")
+        } else {
+            presentAlertOnMainThread(
+                title: "Oops!",
+                message: "Please check your internet connection or come back later.",
+                buttonTitle: "OK"
+            )
         }
     }
 }
