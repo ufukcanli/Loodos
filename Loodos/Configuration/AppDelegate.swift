@@ -63,9 +63,10 @@ private extension AppDelegate {
         window.rootViewController?.present(controller, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 window.rootViewController?.dismiss(animated: true) { [self] in
-                    let viewController = UIViewController()
-                    viewController.view.backgroundColor = .systemBackground
-                    setRootViewController(viewController)
+                    let navigationController = UINavigationController(
+                        rootViewController: MovieListViewController()
+                    )
+                    setRootViewController(navigationController)
                 }
             }
         }
