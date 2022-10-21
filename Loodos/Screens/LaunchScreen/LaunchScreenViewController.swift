@@ -17,6 +17,10 @@ final class LaunchScreenViewController: UIViewController {
         view.backgroundColor = .systemBlue
         
         configureTitleLabel()
+        
+        if NetworkReachability.isConnectedToNetwork() {
+            debugPrint(#function, "CONNECTED")
+        }
     }
 }
 
