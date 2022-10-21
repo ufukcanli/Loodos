@@ -15,21 +15,11 @@ extension UIViewController {
         buttonTitle: String
     ) {
         DispatchQueue.main.async {
-            let alertController = UIAlertController(
+            let alertController = AlertManager.createAlertController(
                 title: title,
                 message: message,
-                preferredStyle: .alert
+                buttonTitle: buttonTitle
             )
-            alertController.modalPresentationStyle = .overFullScreen
-            alertController.modalTransitionStyle = .crossDissolve
-            
-            let okAction = UIAlertAction(
-                title: buttonTitle,
-                style: .default,
-                handler: nil
-            )
-            alertController.addAction(okAction)
-            
             self.present(alertController, animated: true, completion: nil)
         }
     }

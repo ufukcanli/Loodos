@@ -1,5 +1,5 @@
 //
-//  NetworkReachability.swift
+//  ReachabilityManager.swift
 //  Loodos
 //
 //  Created by Ufuk Canlı on 21.10.2022.
@@ -7,7 +7,7 @@
 
 import SystemConfiguration
 
-enum NetworkReachability {
+enum ReachabilityManager {
     
     static func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
