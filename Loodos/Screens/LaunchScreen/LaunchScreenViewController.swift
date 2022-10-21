@@ -25,7 +25,7 @@ private extension LaunchScreenViewController {
     func configureTitleLabel() {
         titleLabel.text = "Loodos"
         titleLabel.textColor = .label
-        titleLabel.font = .systemFont(ofSize: 50, weight: .medium)
+        titleLabel.font = .systemFont(ofSize: 55, weight: .semibold)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
