@@ -36,23 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
     
-    func setRootViewController(
-        _ viewController: UIViewController,
-        withAnimation: Bool = false
-    ) {
+    func setRootViewController(_ viewController: UIViewController) {
         guard let window = self.window else { return }
         window.rootViewController = viewController
         window.makeKeyAndVisible()
-        
-        if withAnimation {
-            UIView.transition(
-                with: window,
-                duration: 0.3,
-                options: .transitionCrossDissolve,
-                animations: nil,
-                completion: nil
-            )
-        }
     }
     
     func presentViewController(
@@ -78,7 +65,7 @@ private extension AppDelegate {
                 window.rootViewController?.dismiss(animated: true) { [self] in
                     let viewController = UIViewController()
                     viewController.view.backgroundColor = .systemBackground
-                    setRootViewController(viewController, withAnimation: true)
+                    setRootViewController(viewController)
                 }
             }
         }
