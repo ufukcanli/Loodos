@@ -10,7 +10,6 @@
 		D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */; };
 		D245B43E2902CAE200ACCBD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */; };
 		D245B4452902CAE300ACCBD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D245B4442902CAE300ACCBD7 /* Assets.xcassets */; };
-		D245B4482902CAE300ACCBD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D245B4462902CAE300ACCBD7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +17,6 @@
 		D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D245B4442902CAE300ACCBD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D245B4472902CAE300ACCBD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D245B4492902CAE300ACCBD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +53,6 @@
 				D245B43B2902CAE200ACCBD7 /* AppDelegate.swift */,
 				D245B43D2902CAE200ACCBD7 /* SceneDelegate.swift */,
 				D245B4442902CAE300ACCBD7 /* Assets.xcassets */,
-				D245B4462902CAE300ACCBD7 /* LaunchScreen.storyboard */,
 				D245B4492902CAE300ACCBD7 /* Info.plist */,
 			);
 			path = Loodos;
@@ -119,7 +116,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D245B4482902CAE300ACCBD7 /* LaunchScreen.storyboard in Resources */,
 				D245B4452902CAE300ACCBD7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,17 +133,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D245B4462902CAE300ACCBD7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D245B4472902CAE300ACCBD7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D245B44A2902CAE300ACCBD7 /* Debug */ = {
@@ -275,7 +260,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loodos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,7 +286,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loodos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
