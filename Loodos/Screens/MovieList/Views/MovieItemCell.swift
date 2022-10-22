@@ -29,10 +29,9 @@ final class MovieItemCell: UICollectionViewCell {
     }
     
     func populateCell(with movie: MovieItem?) {
-        if let movie = movie {
-            titleLabel.text = movie.originalTitle
-            imageView.kf.setImage(with: movie.posterURL)
-        }
+        guard let movie = movie else { return }
+        titleLabel.text = movie.originalTitle
+        imageView.kf.setImage(with: movie.posterURL)
     }
 }
 
@@ -60,7 +59,7 @@ private extension MovieItemCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
+            imageView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }

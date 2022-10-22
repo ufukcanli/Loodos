@@ -15,6 +15,7 @@ enum NetworkManager {
     case upcomingMovies
     case popularMovies
     case topRatedMovies
+//    case movieDetail(Int)
 
     var endpoint: String {
         switch self {
@@ -26,6 +27,8 @@ enum NetworkManager {
             return "\(NetworkManager.BASE_URL)/3/movie/popular?api_key=\(NetworkManager.API_KEY)"
         case .topRatedMovies:
             return "\(NetworkManager.BASE_URL)/3/movie/top_rated?api_key=\(NetworkManager.API_KEY)"
+//        case .movieDetail(let id):
+//            return "\(NetworkManager.BASE_URL)/3/movie/\(id)?api_key=\(NetworkManager.API_KEY)"
         }
     }
     
