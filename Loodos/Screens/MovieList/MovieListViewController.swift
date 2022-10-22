@@ -9,6 +9,7 @@ import UIKit
 
 final class MovieListViewController: UIViewController {
     
+    private lazy var loadingView = UIActivityIndicatorView(style: .medium)
     private lazy var searchController = UISearchController()
     private var collectionView: UICollectionView!
     
@@ -34,6 +35,7 @@ final class MovieListViewController: UIViewController {
         configureSearchController()
         configureCollectionView()
         configureNavigationBar()
+        configureLoadingView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,7 @@ extension MovieListViewController: MovieListViewModelDelegate {
     
     func didFinishFetchingMovies() {
         DispatchQueue.main.async { [self] in
+            loadingView.stopAnimating()
             collectionView.reloadData()
         }
     }
@@ -111,5 +114,17 @@ private extension MovieListViewController {
         collectionView.delegate = self
         
         view.addSubview(collectionView)
+    }
+    
+    func configureLoadingView() {
+        collectionView.addSubview(loadingView)
+        
+        loadingView.startAnimating()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: collectionView.safeAreaLayoutGuide.topAnchor, constant: 150),
+            loadingView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+        ])
     }
 }
