@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MovieListViewController: UITableViewController {
+final class MovieListViewController: UIViewController {
     
     private lazy var searchController = UISearchController()
     
@@ -24,29 +24,6 @@ final class MovieListViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         configureNavigationBar()
-    }
-}
-
-extension MovieListViewController {
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        return 10
-    }
-    
-    override func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ID")
-        cell.textLabel!.text = "Movie title"
-        return cell
     }
 }
 
