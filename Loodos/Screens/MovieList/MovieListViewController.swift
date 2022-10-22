@@ -20,6 +20,23 @@ final class MovieListViewController: UIViewController {
         configureSearchController()
         configureCollectionView()
         configureNavigationBar()
+        
+//        NetworkManager.getTrendingMovies { result in
+//            switch result {
+//            case .success(let movies):
+//                debugPrint(movies)
+//            case .failure(let error):
+//                debugPrint(error)
+//            }
+//        }
+        NetworkManager.getPopularMovies { result in
+            switch result {
+            case .success(let movies):
+                debugPrint(movies)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
     }
 }
 
