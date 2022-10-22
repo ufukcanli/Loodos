@@ -22,20 +22,16 @@ final class MovieListViewController: UIViewController {
         configureSearchController()
         configureCollectionView()
         configureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-//        NetworkManager.getTrendingMovies { result in
-//            switch result {
-//            case .success(let movies):
-//                debugPrint(movies)
-//            case .failure(let error):
-//                debugPrint(error)
-//            }
-//        }
         NetworkManager.getPopularMovies { [weak self] result in
             switch result {
             case .success(let movies):
-//                debugPrint(movies)
                 self?.movies = movies.results
+//                debugPrint(self?.movies)
             case .failure(let error):
                 debugPrint(error)
             }
@@ -56,7 +52,7 @@ extension MovieListViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 15
+        return movies.count
     }
     
     func collectionView(

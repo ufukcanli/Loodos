@@ -21,4 +21,8 @@ struct MovieItem: Decodable {
     let voteCount: Int
     let releaseDate: String?
     let voteAverage: Double
+    
+    var posterURL: URL {
+        URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
+    }
 }
