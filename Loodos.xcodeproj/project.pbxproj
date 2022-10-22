@@ -22,6 +22,7 @@
 		D245B4792904273D00ACCBD7 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4782904273D00ACCBD7 /* MovieListViewModel.swift */; };
 		D245B47D29042E8100ACCBD7 /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */; };
 		D245B4802904461E00ACCBD7 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */; };
+		D245B48429044E5700ACCBD7 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		D245B4782904273D00ACCBD7 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
 		D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */,
+				D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				D245B4792904273D00ACCBD7 /* MovieListViewModel.swift in Sources */,
 				D245B45F2902DA5D00ACCBD7 /* UIViewController+Ext.swift in Sources */,
 				D245B46D2903D0BC00ACCBD7 /* MovieItemCell.swift in Sources */,
+				D245B48429044E5700ACCBD7 /* MovieDetailViewModel.swift in Sources */,
 				D245B4592902D3CD00ACCBD7 /* ReachabilityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

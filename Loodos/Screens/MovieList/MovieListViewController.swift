@@ -66,7 +66,9 @@ extension MovieListViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let movieDetailViewController = MovieDetailViewController()
+        let movieItem = viewModel.cellForItemAt(indexPath: indexPath)
+        let movieDetailViewModel = MovieDetailViewModel(movie: movieItem)
+        let movieDetailViewController = MovieDetailViewController(viewModel: movieDetailViewModel)
         navigationController?.pushViewController(movieDetailViewController, animated: true)
     }
 }
