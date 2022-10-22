@@ -14,6 +14,8 @@ final class MovieItemCell: UICollectionViewCell {
     
     private lazy var titleLabel = UILabel()
     private lazy var imageView = UIImageView()
+    
+    private var viewModel: MovieItemViewModel!
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,10 +30,10 @@ final class MovieItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func populateCell(with movie: MovieItem?) {
-        guard let movie = movie else { return }
-        titleLabel.text = movie.originalTitle
-        imageView.kf.setImage(with: movie.posterURL)
+    func populateCell(with viewModel: MovieItemViewModel) {
+        self.viewModel = viewModel
+        titleLabel.text = viewModel.movieTitle
+        imageView.kf.setImage(with: viewModel.posterURL)
     }
 }
 

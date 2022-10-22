@@ -77,7 +77,7 @@ extension MovieListViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! MovieItemCell
         let movieItem = viewModel.cellForItemAt(indexPath: indexPath)
-        cell.populateCell(with: movieItem)
+        cell.populateCell(with: MovieItemViewModel(movie: movieItem))
         return cell
     }
 }
