@@ -14,6 +14,8 @@
 		D245B45F2902DA5D00ACCBD7 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B45E2902DA5D00ACCBD7 /* UIViewController+Ext.swift */; };
 		D245B4642902E4A200ACCBD7 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4632902E4A200ACCBD7 /* AlertManager.swift */; };
 		D245B4682902F5D000ACCBD7 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4672902F5D000ACCBD7 /* MovieListViewController.swift */; };
+		D245B46D2903D0BC00ACCBD7 /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B46C2903D0BC00ACCBD7 /* MovieItemCell.swift */; };
+		D245B46F2903D0ED00ACCBD7 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B46E2903D0ED00ACCBD7 /* UIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D245B45E2902DA5D00ACCBD7 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		D245B4632902E4A200ACCBD7 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		D245B4672902F5D000ACCBD7 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		D245B46C2903D0BC00ACCBD7 /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
+		D245B46E2903D0ED00ACCBD7 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		D245B4652902E4E500ACCBD7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D245B46E2903D0ED00ACCBD7 /* UIManager.swift */,
 				D245B4632902E4A200ACCBD7 /* AlertManager.swift */,
 				D245B4582902D3CD00ACCBD7 /* ReachabilityManager.swift */,
 			);
@@ -121,9 +126,18 @@
 		D245B4662902F5A800ACCBD7 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				D245B46B2903D0A500ACCBD7 /* Views */,
 				D245B4672902F5D000ACCBD7 /* MovieListViewController.swift */,
 			);
 			path = MovieList;
+			sourceTree = "<group>";
+		};
+		D245B46B2903D0A500ACCBD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D245B46C2903D0BC00ACCBD7 /* MovieItemCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +212,10 @@
 				D245B4532902D13100ACCBD7 /* LaunchScreenViewController.swift in Sources */,
 				D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */,
 				D245B4642902E4A200ACCBD7 /* AlertManager.swift in Sources */,
+				D245B46F2903D0ED00ACCBD7 /* UIManager.swift in Sources */,
 				D245B4682902F5D000ACCBD7 /* MovieListViewController.swift in Sources */,
 				D245B45F2902DA5D00ACCBD7 /* UIViewController+Ext.swift in Sources */,
+				D245B46D2903D0BC00ACCBD7 /* MovieItemCell.swift in Sources */,
 				D245B4592902D3CD00ACCBD7 /* ReachabilityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
