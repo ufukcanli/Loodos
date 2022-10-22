@@ -60,7 +60,16 @@ extension MovieListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {}
 }
 
-extension MovieListViewController: UICollectionViewDelegate {}
+extension MovieListViewController: UICollectionViewDelegate {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        let movieDetailViewController = MovieDetailViewController()
+        navigationController?.pushViewController(movieDetailViewController, animated: true)
+    }
+}
 
 extension MovieListViewController: UICollectionViewDataSource {
     
@@ -123,8 +132,8 @@ private extension MovieListViewController {
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            loadingView.topAnchor.constraint(equalTo: collectionView.safeAreaLayoutGuide.topAnchor, constant: 150),
-            loadingView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
+            loadingView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor)
         ])
     }
 }

@@ -21,6 +21,7 @@
 		D245B4772904012B00ACCBD7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D245B4762904012B00ACCBD7 /* Kingfisher */; };
 		D245B4792904273D00ACCBD7 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B4782904273D00ACCBD7 /* MovieListViewModel.swift */; };
 		D245B47D29042E8100ACCBD7 /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */; };
+		D245B4802904461E00ACCBD7 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D245B4732903D54F00ACCBD7 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		D245B4782904273D00ACCBD7 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
+		D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				D245B4662902F5A800ACCBD7 /* MovieList */,
+				D245B47E2904460100ACCBD7 /* MovieDetail */,
 				D245B4512902D11F00ACCBD7 /* LaunchScreen */,
 			);
 			path = Screens;
@@ -160,6 +163,14 @@
 				D245B4732903D54F00ACCBD7 /* MovieResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D245B47E2904460100ACCBD7 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +252,7 @@
 				D245B4532902D13100ACCBD7 /* LaunchScreenViewController.swift in Sources */,
 				D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */,
 				D245B4742903D54F00ACCBD7 /* MovieResponse.swift in Sources */,
+				D245B4802904461E00ACCBD7 /* MovieDetailViewController.swift in Sources */,
 				D245B4642902E4A200ACCBD7 /* AlertManager.swift in Sources */,
 				D245B46F2903D0ED00ACCBD7 /* UIManager.swift in Sources */,
 				D245B47D29042E8100ACCBD7 /* MovieItemViewModel.swift in Sources */,
