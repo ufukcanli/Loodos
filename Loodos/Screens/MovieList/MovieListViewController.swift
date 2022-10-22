@@ -12,6 +12,8 @@ final class MovieListViewController: UIViewController {
     private lazy var searchController = UISearchController()
     private var collectionView: UICollectionView!
     
+    private var movies: [MovieItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +31,11 @@ final class MovieListViewController: UIViewController {
 //                debugPrint(error)
 //            }
 //        }
-        NetworkManager.getPopularMovies { result in
+        NetworkManager.getPopularMovies { [weak self] result in
             switch result {
             case .success(let movies):
-                debugPrint(movies)
+//                debugPrint(movies)
+                self?.movies = movies.results
             case .failure(let error):
                 debugPrint(error)
             }
@@ -64,6 +67,7 @@ extension MovieListViewController: UICollectionViewDataSource {
             withReuseIdentifier: MovieItemCell.reuseIdentifier,
             for: indexPath
         ) as! MovieItemCell
+        cell.populateCell(with: movies[indexPath.item])
         return cell
     }
 }

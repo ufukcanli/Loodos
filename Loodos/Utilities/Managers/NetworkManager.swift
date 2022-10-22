@@ -66,6 +66,7 @@ private extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let responseObject = try decoder.decode(T.self, from: data)
                 completion(.success(responseObject))
             } catch {
