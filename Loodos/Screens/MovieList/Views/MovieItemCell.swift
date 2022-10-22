@@ -60,7 +60,7 @@ private extension MovieItemCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 130),
+            imageView.heightAnchor.constraint(equalToConstant: 150),
         ])
     }
 }
