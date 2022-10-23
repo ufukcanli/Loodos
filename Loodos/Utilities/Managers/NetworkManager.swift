@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum NetworkError: String, Error {
+    case unableToComplete = "Unable complete your request. Please check your internet connection."
+    case invalidResponse = "Invalid response from the server. Please try again."
+    case invalidData = "The data received from the server was invalid. Please try again."
+}
+
 enum NetworkManager {
     static let BASE_URL = "https://api.themoviedb.org"
     static let API_KEY = "697d439ac993538da4e3e60b54e762cd"
@@ -40,23 +46,23 @@ enum NetworkManager {
 
 extension NetworkManager {
     
-    static func getTrendingMovies(completion: @escaping (Result<MovieList, Error>) -> Void) {
+    static func getTrendingMovies(completion: @escaping (Result<MovieList, NetworkError>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.trendingMovies.url, completion: completion)
     }
     
-    static func getUpcomingMovies(completion: @escaping (Result<MovieList, Error>) -> Void) {
+    static func getUpcomingMovies(completion: @escaping (Result<MovieList, NetworkError>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.upcomingMovies.url, completion: completion)
     }
     
-    static func getPopularMovies(completion: @escaping (Result<MovieList, Error>) -> Void) {
+    static func getPopularMovies(completion: @escaping (Result<MovieList, NetworkError>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.popularMovies.url, completion: completion)
     }
     
-    static func getTopRatedMovies(completion: @escaping (Result<MovieList, Error>) -> Void) {
+    static func getTopRatedMovies(completion: @escaping (Result<MovieList, NetworkError>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.topRatedMovies.url, completion: completion)
     }
     
-    static func searchMovies(with query: String, completion: @escaping (Result<MovieList, Error>) -> Void) {
+    static func searchMovies(with query: String, completion: @escaping (Result<MovieList, NetworkError>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.searchMovies(query).url, completion: completion)
     }
 }
@@ -65,22 +71,28 @@ private extension NetworkManager {
     
     static func taskForGetRequest<T: Decodable>(
         url: URL,
-        completion: @escaping (Result<T, Error>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error { return}
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-            
-            guard let data = data else { return}
-            
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+                return
+            }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let responseObject = try decoder.decode(T.self, from: data)
                 completion(.success(responseObject))
             } catch {
-                completion(.failure(error))
+                completion(.failure(.invalidData))
             }
         }
         task.resume()
