@@ -9,8 +9,10 @@ import UIKit
 
 final class LaunchScreenViewController: UIViewController {
     
+    // MARK: Instance Variables
     private lazy var titleLabel = UILabel()
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -26,6 +28,7 @@ final class LaunchScreenViewController: UIViewController {
     }
 }
 
+// MARK: - Configure UI
 private extension LaunchScreenViewController {
     
     func configureTitleLabel() {

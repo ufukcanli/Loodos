@@ -9,12 +9,14 @@ import UIKit
 
 final class MovieListViewController: UIViewController {
     
+    // MARK: Instance Variables
     private lazy var loadingView = UIActivityIndicatorView(style: .medium)
     private lazy var searchController = UISearchController()
     private lazy var emptyStateLabel = UILabel()
     private var collectionView: UICollectionView!
     private var timer: Timer?
-        
+    
+    // MARK: Initialization
     private let viewModel: MovieListViewModel!
     
     init(viewModel: MovieListViewModel = MovieListViewModel()) {
@@ -27,6 +29,7 @@ final class MovieListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +49,7 @@ final class MovieListViewController: UIViewController {
     }
 }
 
+// MARK: - MovieListViewModelDelegate
 extension MovieListViewController: MovieListViewModelDelegate {
     
     func willUpdateViewController() {
@@ -62,6 +66,7 @@ extension MovieListViewController: MovieListViewModelDelegate {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension MovieListViewController: UISearchBarDelegate {
     
     func searchBar(
@@ -80,6 +85,7 @@ extension MovieListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(
@@ -94,6 +100,7 @@ extension MovieListViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(
@@ -118,6 +125,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Configure UI
 private extension MovieListViewController {
     
     func updateViewController() {

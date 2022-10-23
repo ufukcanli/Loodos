@@ -10,6 +10,7 @@ import Kingfisher
 
 final class MovieDetailViewController: UIViewController {
     
+    // MARK: Instance Variables
     private lazy var imageView = UIImageView()
     private lazy var titleLabel = UILabel()
     private lazy var overviewLabel = UILabel()
@@ -18,6 +19,7 @@ final class MovieDetailViewController: UIViewController {
     
     private var padding: CGFloat = 16
     
+    // MARK: Initialization
     private let viewModel: MovieDetailViewModel!
     
     init(viewModel: MovieDetailViewModel) {
@@ -29,6 +31,7 @@ final class MovieDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +50,7 @@ final class MovieDetailViewController: UIViewController {
     }
 }
 
+// MARK: - Configure UI
 private extension MovieDetailViewController {
     
     func configureScrollView() {
