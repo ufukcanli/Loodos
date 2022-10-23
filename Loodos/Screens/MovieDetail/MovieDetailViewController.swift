@@ -12,8 +12,11 @@ final class MovieDetailViewController: UIViewController {
     
     private lazy var imageView = UIImageView()
     private lazy var titleLabel = UILabel()
+    private lazy var overviewLabel = UILabel()
+    private lazy var scrollView = UIScrollView()
+    private lazy var contentView = UIView()
     
-    private var padding: CGFloat = 32
+    private var padding: CGFloat = 16
     
     private let viewModel: MovieDetailViewModel!
     
@@ -28,12 +31,13 @@ final class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-        navigationItem.largeTitleDisplayMode = .never
         
+        configureScrollView()
+        configureContentView()
+        configureViewController()
         configureImageView()
         configureTitleLabel()
+        configureOverviewLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +49,37 @@ final class MovieDetailViewController: UIViewController {
 
 private extension MovieDetailViewController {
     
+    func configureScrollView() {
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 50)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
+    }
+    
+    func configureContentView() {
+        contentView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
+        scrollView.addSubview(contentView)
+    }
+    
+    func updateViewController() {
+        titleLabel.text = viewModel.movieTitle
+        overviewLabel.text = viewModel.overviewText
+        imageView.kf.setImage(with: viewModel.posterURL)
+    }
+    
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        navigationItem.largeTitleDisplayMode = .never
+        title = viewModel.title
+    }
+    
     func configureImageView() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .systemGreen
@@ -52,29 +87,41 @@ private extension MovieDetailViewController {
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             imageView.heightAnchor.constraint(equalToConstant: 550)
         ])
     }
     
     func configureTitleLabel() {
+        titleLabel.textColor = .label
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Moview name"
+        titleLabel.text = viewModel.movieTitle
         
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: padding)
         ])
     }
     
-    func updateViewController() {
-        titleLabel.text = viewModel.movieTitle
-        imageView.kf.setImage(with: viewModel.posterURL)
+    func configureOverviewLabel() {
+        overviewLabel.textColor = .label
+        overviewLabel.numberOfLines = 0
+        overviewLabel.font = .preferredFont(forTextStyle: .body)
+        overviewLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(overviewLabel)
+        
+        NSLayoutConstraint.activate([
+            overviewLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding)
+        ])
     }
 }

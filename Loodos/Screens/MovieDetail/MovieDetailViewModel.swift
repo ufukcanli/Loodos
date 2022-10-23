@@ -13,11 +13,21 @@ final class MovieDetailViewModel {
     
     init(movie: MovieItem) {
         self.movie = movie
+        debugPrint(movie)
+    }
+    
+    var title: String {
+        return "Detail"
     }
     
     var movieTitle: String {
         guard let title = movie.originalTitle else { return "N/A" }
         return title
+    }
+    
+    var overviewText: String {
+        guard let overview = movie.overview else { return "N/A" }
+        return overview
     }
     
     var posterURL: URL {
