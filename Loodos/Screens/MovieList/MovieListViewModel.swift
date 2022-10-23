@@ -5,7 +5,7 @@
 //  Created by Ufuk Canlı on 22.10.2022.
 //
 
-import Foundation
+import FirebaseAnalytics
 
 protocol MovieListViewModelDelegate: AnyObject {
     func willUpdateViewController()
@@ -40,6 +40,17 @@ final class MovieListViewModel {
     
     func cellForItemAt(indexPath: IndexPath) -> MovieItem {
         return movies[indexPath.item]
+    }
+    
+    func didSelectItemAt(indexPath: IndexPath) {
+        let movieItem = movies[indexPath.item]
+        FirebaseAnalytics.Analytics.logEvent(
+            "DETAIL_SCREEN_VIEWED",
+            parameters: [
+                AnalyticsParameterScreenName: "MOVIE_DETAIL_SCREEN",
+                "MOVIE_NAME": movieItem.originalTitle!
+            ]
+        )
     }
     
     func fetchPopularMovies() {

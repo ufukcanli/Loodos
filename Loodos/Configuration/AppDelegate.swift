@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             presentViewController(alertController)
         }
+        
+        FirebaseApp.configure()
         
         return true
     }
