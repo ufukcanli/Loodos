@@ -13,7 +13,6 @@ final class MovieDetailViewModel {
     
     init(movie: MovieItem) {
         self.movie = movie
-        debugPrint(movie)
     }
     
     var title: String {

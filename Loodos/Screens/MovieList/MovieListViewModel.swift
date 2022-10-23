@@ -9,6 +9,7 @@ import Foundation
 
 protocol MovieListViewModelDelegate: AnyObject {
     func willUpdateViewController()
+    func willUpdateViewController(with message: String)
 }
 
 final class MovieListViewModel {
@@ -19,6 +20,14 @@ final class MovieListViewModel {
     
     var title: String {
         return "Movies"
+    }
+    
+    var errorTitle: String {
+        return "Something went wrong!"
+    }
+    
+    var alertButtonTitle: String {
+        return "OK"
     }
     
     var emptyStateLabelIsHidden: Bool {
@@ -40,7 +49,7 @@ final class MovieListViewModel {
                 self?.movies = movies.results
                 self?.delegate?.willUpdateViewController()
             case .failure(let error):
-                debugPrint(error)
+                self?.delegate?.willUpdateViewController(with: error.rawValue)
             }
         }
     }
@@ -60,7 +69,7 @@ final class MovieListViewModel {
                 self?.movies = movies.results
                 self?.delegate?.willUpdateViewController()
             case .failure(let error):
-                debugPrint(error)
+                self?.delegate?.willUpdateViewController(with: error.rawValue)
             }
         }
     }

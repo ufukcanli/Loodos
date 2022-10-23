@@ -82,7 +82,7 @@ private extension MovieDetailViewController {
     
     func configureImageView() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .systemGreen
+        imageView.backgroundColor = .systemGray6
         
         view.addSubview(imageView)
         

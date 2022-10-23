@@ -49,10 +49,16 @@ final class MovieListViewController: UIViewController {
 extension MovieListViewController: MovieListViewModelDelegate {
     
     func willUpdateViewController() {
-        DispatchQueue.main.async { [self] in
-            loadingView.stopAnimating()
-            collectionView.reloadData()
-        }
+        updateViewController()
+    }
+    
+    func willUpdateViewController(with message: String) {
+        updateViewController()
+        presentAlertOnMainThread(
+            title: viewModel.errorTitle,
+            message: message,
+            buttonTitle: viewModel.alertButtonTitle
+        )
     }
 }
 
@@ -112,6 +118,13 @@ extension MovieListViewController: UICollectionViewDataSource {
 }
 
 private extension MovieListViewController {
+    
+    func updateViewController() {
+        DispatchQueue.main.async { [self] in
+            loadingView.stopAnimating()
+            collectionView.reloadData()
+        }
+    }
     
     func configureSearchController() {
         searchController.searchBar.delegate = self
