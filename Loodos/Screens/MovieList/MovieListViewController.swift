@@ -58,8 +58,12 @@ extension MovieListViewController: MovieListViewModelDelegate {
 
 extension MovieListViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(
+        _ searchBar: UISearchBar,
+        textDidChange searchText: String
+    ) {
         timer?.invalidate()
+        loadingView.startAnimating()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
             self?.viewModel.searchMovies(with: searchText)
         }
