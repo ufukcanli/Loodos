@@ -23,6 +23,7 @@
 		D245B47D29042E8100ACCBD7 /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */; };
 		D245B4802904461E00ACCBD7 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */; };
 		D245B48429044E5700ACCBD7 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */; };
+		D245B486290525C600ACCBD7 /* TransitionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B485290525C600ACCBD7 /* TransitionScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D245B47C29042E8100ACCBD7 /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
 		D245B47F2904461E00ACCBD7 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		D245B485290525C600ACCBD7 /* TransitionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D245B4522902D13100ACCBD7 /* LaunchScreenViewController.swift */,
+				D245B485290525C600ACCBD7 /* TransitionScreenViewController.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				D245B4802904461E00ACCBD7 /* MovieDetailViewController.swift in Sources */,
 				D245B4642902E4A200ACCBD7 /* AlertManager.swift in Sources */,
 				D245B46F2903D0ED00ACCBD7 /* UIManager.swift in Sources */,
+				D245B486290525C600ACCBD7 /* TransitionScreenViewController.swift in Sources */,
 				D245B47D29042E8100ACCBD7 /* MovieItemViewModel.swift in Sources */,
 				D245B4682902F5D000ACCBD7 /* MovieListViewController.swift in Sources */,
 				D245B4792904273D00ACCBD7 /* MovieListViewModel.swift in Sources */,

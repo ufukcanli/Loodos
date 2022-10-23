@@ -48,9 +48,8 @@ private extension AppDelegate {
     ) {
         guard let window = self.window else { return }
         
-        let rootViewController = UIViewController()
-        rootViewController.view.backgroundColor = .systemBackground
-        setRootViewController(rootViewController)
+        let transitionVC = TransitionScreenViewController()
+        setRootViewController(transitionVC)
         
         guard atLaunch else {
             window.rootViewController?.present(controller, animated: true)
