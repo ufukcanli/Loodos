@@ -9,6 +9,8 @@ import UIKit
 
 enum UIManager {
     
+    static let placeholderImage = UIImage(named: "placeholder")!.withRenderingMode(.alwaysOriginal)
+    
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
         let padding: CGFloat = 16

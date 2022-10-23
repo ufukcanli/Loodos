@@ -29,7 +29,10 @@ final class MovieItemCell: UICollectionViewCell {
     
     func populateCell(with viewModel: MovieItemViewModel) {
         self.viewModel = viewModel
-        imageView.kf.setImage(with: viewModel.posterURL)
+        imageView.kf.setImage(
+            with: viewModel.posterURL,
+            placeholder: UIImage(named: "placeholder")!
+        )
     }
 }
 

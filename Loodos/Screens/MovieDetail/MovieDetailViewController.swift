@@ -75,7 +75,10 @@ private extension MovieDetailViewController {
     func updateViewController() {
         titleLabel.text = viewModel.movieTitle
         overviewLabel.text = viewModel.overviewText
-        imageView.kf.setImage(with: viewModel.posterURL)
+        imageView.kf.setImage(
+            with: viewModel.posterURL,
+            placeholder: UIImage(named: "placeholder")!
+        )
     }
     
     func configureViewController() {
