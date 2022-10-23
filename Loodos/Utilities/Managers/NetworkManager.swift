@@ -16,6 +16,7 @@ enum NetworkManager {
     case popularMovies
     case topRatedMovies
 //    case movieDetail(Int)
+    case searchMovies(String)
 
     var endpoint: String {
         switch self {
@@ -29,6 +30,8 @@ enum NetworkManager {
             return "\(NetworkManager.BASE_URL)/3/movie/top_rated?api_key=\(NetworkManager.API_KEY)"
 //        case .movieDetail(let id):
 //            return "\(NetworkManager.BASE_URL)/3/movie/\(id)?api_key=\(NetworkManager.API_KEY)"
+        case .searchMovies(let query):
+            return "\(NetworkManager.BASE_URL)/3/search/movie?api_key=\(NetworkManager.API_KEY)&query=\(query)"
         }
     }
     
@@ -51,6 +54,10 @@ extension NetworkManager {
     
     static func getTopRatedMovies(completion: @escaping (Result<MovieList, Error>) -> Void) {
         NetworkManager.taskForGetRequest(url: NetworkManager.topRatedMovies.url, completion: completion)
+    }
+    
+    static func searchMovies(with query: String, completion: @escaping (Result<MovieList, Error>) -> Void) {
+        NetworkManager.taskForGetRequest(url: NetworkManager.searchMovies(query).url, completion: completion)
     }
 }
 

@@ -12,9 +12,8 @@ final class MovieListViewController: UIViewController {
     private lazy var loadingView = UIActivityIndicatorView(style: .medium)
     private lazy var searchController = UISearchController()
     private var collectionView: UICollectionView!
-    
-    private var movies: [MovieItem] = []
-    
+    private var timer: Timer?
+        
     private let viewModel: MovieListViewModel!
     
     init(viewModel: MovieListViewModel = MovieListViewModel()) {
@@ -41,13 +40,13 @@ final class MovieListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel.fetchPopularMovies()
+//        viewModel.fetchPopularMovies()
     }
 }
 
 extension MovieListViewController: MovieListViewModelDelegate {
     
-    func didFinishFetchingMovies() {
+    func willUpdateViewController() {
         DispatchQueue.main.async { [self] in
             loadingView.stopAnimating()
             collectionView.reloadData()
@@ -55,9 +54,28 @@ extension MovieListViewController: MovieListViewModelDelegate {
     }
 }
 
-extension MovieListViewController: UISearchResultsUpdating {
+extension MovieListViewController: UISearchBarDelegate {
     
-    func updateSearchResults(for searchController: UISearchController) {}
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
+            self?.viewModel.searchMovies(with: searchText)
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        timer?.invalidate()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.searchTextField.text else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
+            self?.viewModel.searchMovies(with: searchText)
+        }
+    }
+    
+    private func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchController.searchBar.endEditing(true)
+    }
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
@@ -99,7 +117,7 @@ extension MovieListViewController: UICollectionViewDataSource {
 private extension MovieListViewController {
     
     func configureSearchController() {
-        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a movie"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -134,7 +152,7 @@ private extension MovieListViewController {
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            loadingView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
+            loadingView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 200),
             loadingView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor)
         ])
     }

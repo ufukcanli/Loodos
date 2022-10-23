@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieListViewModelDelegate: AnyObject {
-    func didFinishFetchingMovies()
+    func willUpdateViewController()
 }
 
 final class MovieListViewModel {
@@ -30,7 +30,27 @@ final class MovieListViewModel {
             switch result {
             case .success(let movies):
                 self?.movies = movies.results
-                self?.delegate?.didFinishFetchingMovies()
+                self?.delegate?.willUpdateViewController()
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+    
+    func searchMovies(with query: String) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return
+        }
+        guard !query.isEmpty else {
+            movies = []
+            delegate?.willUpdateViewController()
+            return
+        }
+        NetworkManager.searchMovies(with: query) { [weak self] result in
+            switch result {
+            case .success(let movies):
+                self?.movies = movies.results
+                self?.delegate?.willUpdateViewController()
             case .failure(let error):
                 debugPrint(error)
             }
