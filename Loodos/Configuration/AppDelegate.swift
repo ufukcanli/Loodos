@@ -25,7 +25,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             let alertController = AlertManager.createAlertController(
                 title: "Oops!",
                 message: "Please check your internet connection or come back later.",
-                buttonTitle: "OK"
+                buttonTitle: nil
             )
             presentViewController(alertController)
         }

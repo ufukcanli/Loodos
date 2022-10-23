@@ -12,7 +12,7 @@ enum AlertManager {
     static func createAlertController(
         title: String,
         message: String,
-        buttonTitle: String
+        buttonTitle: String?
     ) -> UIAlertController {
         let alertController = UIAlertController(
             title: title,
@@ -22,12 +22,14 @@ enum AlertManager {
         alertController.modalPresentationStyle = .overFullScreen
         alertController.modalTransitionStyle = .crossDissolve
 
-        let okAction = UIAlertAction(
-            title: buttonTitle,
-            style: .default,
-            handler: nil
-        )
-        alertController.addAction(okAction)
+        if let buttonTitle = buttonTitle {
+            let okAction = UIAlertAction(
+                title: buttonTitle,
+                style: .default,
+                handler: nil
+            )
+            alertController.addAction(okAction)
+        }
 
         return alertController
     }
