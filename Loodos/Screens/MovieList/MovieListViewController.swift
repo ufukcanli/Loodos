@@ -67,21 +67,19 @@ extension MovieListViewController: MovieListViewModelDelegate {
 }
 
 // MARK: - UISearchBarDelegate
-extension MovieListViewController: UISearchBarDelegate {
+extension MovieListViewController: UISearchResultsUpdating {
     
-    func searchBar(
-        _ searchBar: UISearchBar,
-        textDidChange searchText: String
-    ) {
-        timer?.invalidate()
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+            viewModel.emptyList()
+            return
+        }
         loadingView.startAnimating()
+
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
             self?.viewModel.searchMovies(with: searchText)
         }
-    }
-    
-    private func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchController.searchBar.endEditing(true)
     }
 }
 
@@ -136,9 +134,10 @@ private extension MovieListViewController {
     }
     
     func configureSearchController() {
-        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a movie"
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.returnKeyType = .done
         navigationItem.searchController = searchController
     }
     
@@ -165,9 +164,10 @@ private extension MovieListViewController {
     }
     
     func configureLoadingView() {
-        collectionView.addSubview(loadingView)
-        
         loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.color = .label
+        
+        collectionView.addSubview(loadingView)
         
         NSLayoutConstraint.activate([
             loadingView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 200),

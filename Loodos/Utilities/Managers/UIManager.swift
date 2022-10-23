@@ -13,7 +13,7 @@ enum UIManager {
     
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
-        let padding: CGFloat = 16
+        let padding: CGFloat = 20
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth = availableWidth / 3

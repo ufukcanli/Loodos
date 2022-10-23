@@ -17,7 +17,7 @@ final class MovieDetailViewController: UIViewController {
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
     
-    private var padding: CGFloat = 16
+    private var padding: CGFloat = 20
     
     // MARK: Initialization
     private let viewModel: MovieDetailViewModel!
@@ -54,7 +54,7 @@ final class MovieDetailViewController: UIViewController {
 private extension MovieDetailViewController {
     
     func configureScrollView() {
-        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 50)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + padding)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(scrollView)
@@ -68,7 +68,7 @@ private extension MovieDetailViewController {
     }
     
     func configureContentView() {
-        contentView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
+        contentView.frame.size = CGSize(width: view.frame.width, height: view.frame.height + padding)
         scrollView.addSubview(contentView)
     }
     
@@ -94,11 +94,11 @@ private extension MovieDetailViewController {
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             imageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             
-            imageView.heightAnchor.constraint(equalToConstant: 550)
+            imageView.heightAnchor.constraint(equalToConstant: 500)
         ])
     }
     

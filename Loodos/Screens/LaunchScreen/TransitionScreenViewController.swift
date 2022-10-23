@@ -24,6 +24,7 @@ private extension TransitionScreenViewController {
     
     func configureLoadingView() {
         loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.color = .label
         loadingView.startAnimating()
         
         view.addSubview(loadingView)

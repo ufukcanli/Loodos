@@ -84,4 +84,9 @@ final class MovieListViewModel {
             }
         }
     }
+    
+    func emptyList() {
+        movies = []
+        delegate?.willUpdateViewController()
+    }
 }
