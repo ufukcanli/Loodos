@@ -11,6 +11,7 @@ final class MovieListViewController: UIViewController {
     
     private lazy var loadingView = UIActivityIndicatorView(style: .medium)
     private lazy var searchController = UISearchController()
+    private lazy var emptyStateLabel = UILabel()
     private var collectionView: UICollectionView!
     private var timer: Timer?
         
@@ -33,6 +34,7 @@ final class MovieListViewController: UIViewController {
         
         configureSearchController()
         configureCollectionView()
+        configureEmptyStateLabel()
         configureNavigationBar()
         configureLoadingView()
     }
@@ -57,17 +59,7 @@ extension MovieListViewController: MovieListViewModelDelegate {
 extension MovieListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
-            self?.viewModel.searchMovies(with: searchText)
-        }
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         timer?.invalidate()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.searchTextField.text else { return }
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
             self?.viewModel.searchMovies(with: searchText)
         }
@@ -97,6 +89,7 @@ extension MovieListViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
+        emptyStateLabel.isHidden = viewModel.emptyStateLabelIsHidden
         return viewModel.numberOfItemsInSection
     }
     
@@ -126,7 +119,7 @@ private extension MovieListViewController {
     func configureNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Movies"
+        title = viewModel.title
     }
     
     func configureCollectionView() {
@@ -148,12 +141,25 @@ private extension MovieListViewController {
     func configureLoadingView() {
         collectionView.addSubview(loadingView)
         
-        loadingView.startAnimating()
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             loadingView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 200),
             loadingView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor)
+        ])
+    }
+    
+    func configureEmptyStateLabel() {
+        emptyStateLabel.text = "🧐 What are you looking for?"
+        emptyStateLabel.textAlignment = .center
+        emptyStateLabel.font = .preferredFont(forTextStyle: .body)
+        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView.addSubview(emptyStateLabel)
+        
+        NSLayoutConstraint.activate([
+            emptyStateLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 80),
+            emptyStateLabel.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
         ])
     }
 }

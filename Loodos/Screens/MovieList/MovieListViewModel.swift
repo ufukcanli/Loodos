@@ -17,6 +17,14 @@ final class MovieListViewModel {
     
     weak var delegate: MovieListViewModelDelegate?
     
+    var title: String {
+        return "Movies"
+    }
+    
+    var emptyStateLabelIsHidden: Bool {
+        return movies.count > 0 ? true : false
+    }
+    
     var numberOfItemsInSection: Int {
         return movies.count
     }
