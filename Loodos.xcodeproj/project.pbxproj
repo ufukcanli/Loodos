@@ -27,6 +27,7 @@
 		D245B4892905394300ACCBD7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D245B4882905394300ACCBD7 /* FirebaseAnalytics */; };
 		D245B48B2905394300ACCBD7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D245B48A2905394300ACCBD7 /* FirebaseRemoteConfig */; };
 		D245B48D290539AA00ACCBD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D245B48C290539AA00ACCBD7 /* GoogleService-Info.plist */; };
+		D245B49229053EFF00ACCBD7 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245B49129053EFF00ACCBD7 /* RemoteConfigManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		D245B48329044E5700ACCBD7 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		D245B485290525C600ACCBD7 /* TransitionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionScreenViewController.swift; sourceTree = "<group>"; };
 		D245B48C290539AA00ACCBD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D245B49129053EFF00ACCBD7 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				D245B4632902E4A200ACCBD7 /* AlertManager.swift */,
 				D245B4702903D35300ACCBD7 /* NetworkManager.swift */,
 				D245B4582902D3CD00ACCBD7 /* ReachabilityManager.swift */,
+				D245B49129053EFF00ACCBD7 /* RemoteConfigManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D245B4712903D35300ACCBD7 /* NetworkManager.swift in Sources */,
+				D245B49229053EFF00ACCBD7 /* RemoteConfigManager.swift in Sources */,
 				D245B4532902D13100ACCBD7 /* LaunchScreenViewController.swift in Sources */,
 				D245B43C2902CAE200ACCBD7 /* AppDelegate.swift in Sources */,
 				D245B4742903D54F00ACCBD7 /* MovieResponse.swift in Sources */,

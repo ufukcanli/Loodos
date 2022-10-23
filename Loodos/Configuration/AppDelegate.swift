@@ -32,6 +32,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         FirebaseApp.configure()
+        RemoteConfigManager.configure()
         
         return true
     }

@@ -18,12 +18,18 @@ final class LaunchScreenViewController: UIViewController {
         
         configureTitleLabel()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        titleLabel.text = RemoteConfigManager.value(forKey: "LAUNCH_SCREEN_TEXT")
+    }
 }
 
 private extension LaunchScreenViewController {
     
     func configureTitleLabel() {
-        titleLabel.text = "Loodos"
+        titleLabel.text = "N/A"
         titleLabel.textColor = .label
         titleLabel.font = .systemFont(ofSize: 55, weight: .semibold)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
