@@ -25,7 +25,7 @@ enum UIManager {
         )
         flowLayout.itemSize = CGSize(
             width: itemWidth,
-            height: itemWidth + 60
+            height: itemWidth + 50
         )
         
         return flowLayout

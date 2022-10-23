@@ -14,7 +14,7 @@ final class LaunchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
         
         configureTitleLabel()
     }
